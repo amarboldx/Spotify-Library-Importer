@@ -19,4 +19,4 @@ set SPOTIPY_REDIRECT_URI=
 set SPOTIFY_USER_ID=  
 
 
-And set you Google Oauth2.0 client secret by uploading you json file and naming it client_secret.json
+And set you Google Oauth2.0 client secret by uploading your json file to client_secret directory and naming it client_secret.json
