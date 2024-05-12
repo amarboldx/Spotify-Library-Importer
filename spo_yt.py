@@ -13,9 +13,9 @@ from pytube import YouTube as YoutubeDL
 
 
 
-youtube = Youtube('credentials/client_secret.json').google_auth_service()
+youtube = Youtube('client_secrets/client_secret.json').google_auth_service()
 
-sp = Spotify('credentials/creds.json').spotify_auth_service()
+sp = Spotify('client_secrets/creds.json').spotify_auth_service()
 user = sp.current_user()
 playlists = sp.current_user_playlists() #set global for methods to use
 
