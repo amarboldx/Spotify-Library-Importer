@@ -16,15 +16,15 @@ class Youtube:
 
     def google_auth_service(self):
         creds = None
-        if os.path.exists('credentials/token.json'):
-            creds = Credentials.from_authorized_user_file('credentials/token.json', self.SCOPES)
+        if os.path.exists('client_secrets/token.json'):
+            creds = Credentials.from_authorized_user_file('client_secrets/token.json', self.SCOPES)
         if not creds or not creds.valid:
             if creds and creds.expired and creds.refresh_token:
                 creds.refresh(Request())
             else:
                 flow = InstalledAppFlow.from_client_secrets_file(client_secrets_file=self.client_file, scopes=self.SCOPES)
                 creds = flow.run_local_server(port=0)
-            with open('credentials/token.json', 'w') as token:
+            with open('client_secrets/token.json', 'w') as token:
                 token.write(creds.to_json())
         return build(self.API_SERVICE_NAME, self.API_VERSION, credentials=creds)
         
